@@ -18,9 +18,6 @@ const Matricula = connection.define("matriculas", {
     usuarios_id: {
         type: DataTypes.INTEGER
     },
-    coordenadas_geograficas: {
-        type: DataTypes.STRING
-    },
     createdAt: {
         allowNull: false,
         type: Sequelize.DATE
