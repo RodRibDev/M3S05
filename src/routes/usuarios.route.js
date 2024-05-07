@@ -1,9 +1,10 @@
 const { Router } = require('express')
 const Usuario = require('../models/Usuario')
+const { auth } = require('../middleware/auth')
 
 const usuarioRoutes = new Router()
 
-usuarioRoutes.post("/", async(req, res) => {
+usuarioRoutes.post("/", auth, async(req, res) => {
     try {
         const nome = req.body.nome 
         const cpf = req.body.cpf
@@ -13,7 +14,7 @@ usuarioRoutes.post("/", async(req, res) => {
         const email = req.body.email
         const password = req.body.password
 
-        
+
         const VerifyCpf = await Usuario.findOne({
             where: {
                 cpf: cpf,
