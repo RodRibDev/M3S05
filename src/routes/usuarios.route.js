@@ -7,12 +7,28 @@ const usuarioRoutes = new Router()
 usuarioRoutes.post("/", auth, async(req, res) => {
     try {
         const nome = req.body.nome 
-        const cpf = req.body.cpf
+        let cpf = req.body.cpf
         const sexo = req.body.sexo
         const endereco = req.body.endereco
         const data_nascimento = req.body.data_nascimento
         const email = req.body.email
         const password = req.body.password
+
+        cpf = cpf.replace(/\D/g, '')
+
+
+        console.log(cpf)
+        // const validCpf = (cpf) => {
+            
+        //     if (cpf.length != 11){
+        //         return false
+    
+        //     }
+        // }
+        
+        // if(!validCpf(cpf) ){
+        //     return res.status(400).json({message: "CPF inválido"})
+        // }
 
 
         const VerifyCpf = await Usuario.findOne({
@@ -34,7 +50,6 @@ usuarioRoutes.post("/", auth, async(req, res) => {
             return res.status(409).json({ message: "Email já cadastrado!"})
         }
 
-
         const usuario = await Usuario.create({
             nome: nome,
             cpf: cpf,
@@ -47,7 +62,7 @@ usuarioRoutes.post("/", auth, async(req, res) => {
         res.json(usuario)
     } catch (error) {
         console.log(error.message)
-        res.status(500).json({ error: 'Não possível cadastrar o usuário' })
+        res.status(500).json({ error: 'Não foi possível cadastrar o usuário' })
     }
 })
 
