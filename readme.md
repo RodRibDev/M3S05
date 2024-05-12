@@ -1,4 +1,12 @@
 # Projeto Nature365
+ Consiste em uma aplicação para as pessoas salvarem seus locais naturais prediletos ou mesmo salvar o local para uma futura visita.  
+
+## 💻 Tecnologias usadas
+* Back-end: JavaScript
+* Ferramentas: Visual Studio Code, GitHub e Trello
+
+## ☁️ Banco de dados    
+ Para essa aplicação, foi usado o banco de dados PostgreSql, sendo necessário a instalação do PostgreSql e do pgAdmin 4 na máquina.
 
 ## Rodar o repositório:
 
