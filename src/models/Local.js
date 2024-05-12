@@ -12,7 +12,7 @@ const Local = connection.define("locais", {
     localidade: {
         type: DataTypes.STRING
     },
-    coordenadas_geograficas: {
+    cep: {
         type: DataTypes.STRING
     },
     usuarios_id: {
