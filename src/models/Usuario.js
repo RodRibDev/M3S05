@@ -12,8 +12,13 @@ const Usuario = connection.define('usuarios', {
         type: DataTypes.STRING,
     },
     cpf: {
-        type: DataTypes.STRING,
-        unique: true
+        type: DataTypes.STRING(11),
+        allowNull: false,
+        unique: true,
+        validate: {
+            isNumeric: true,
+            len:[11,11]
+        }
     },
     sexo: {
         type: DataTypes.STRING,

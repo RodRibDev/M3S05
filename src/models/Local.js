@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 const { connection } = require("../database/connection");
 
 
-const Matricula = connection.define("matriculas", {
+const Local = connection.define("locais", {
     nome: {
         type: DataTypes.STRING
     },
@@ -12,7 +12,7 @@ const Matricula = connection.define("matriculas", {
     localidade: {
         type: DataTypes.STRING
     },
-    coordenadas_geograficas: {
+    cep: {
         type: DataTypes.STRING
     },
     usuarios_id: {
@@ -20,12 +20,12 @@ const Matricula = connection.define("matriculas", {
     },
     createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: DataTypes.DATE
     },
     updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: DataTypes.DATE
     }
 })
 
-module.exports = Matricula
+module.exports = Local
