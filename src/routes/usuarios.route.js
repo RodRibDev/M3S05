@@ -16,19 +16,19 @@ usuarioRoutes.post("/", auth, async(req, res) => {
 
         cpf = cpf.replace(/\D/g, '')
 
-
-        console.log(cpf)
-        // const validCpf = (cpf) => {
-            
-        //     if (cpf.length != 11){
-        //         return false
+        // console.log(cpf)
+        const validCpf = (cpf) => {
+            if (cpf.length === 11){
+                console.log(cpf.length)
+                return true
     
-        //     }
-        // }
+            }
+            console.log(cpf.length)
+        }
         
-        // if(!validCpf(cpf) ){
-        //     return res.status(400).json({message: "CPF inválido"})
-        // }
+        if(!validCpf(cpf) ){
+            return res.status(400).json({message: "CPF inválido"})
+        }
 
 
         const VerifyCpf = await Usuario.findOne({
