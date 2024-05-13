@@ -6,6 +6,18 @@ const { sign } = require('jsonwebtoken')
 const loginRoutes = new Router()
 
 loginRoutes.post('/', async (req, res) => {
+    /*  
+            #swagger.tags = ['Login'],
+            #swagger.parameters['body'] = {
+                in: 'body',
+                description: 'Realiza o login no sistema.',
+                schema: {
+                    $email: "teste@gmail.com",
+                    $password: "senha123456",         
+            }
+        }
+    */
+
     try {
         const email = req.body.email
         const password = req.body.password

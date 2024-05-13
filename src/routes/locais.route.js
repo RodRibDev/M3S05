@@ -8,6 +8,20 @@ const localRoutes = new Router()
 
 //Criar Novo Local
 localRoutes.post("/", auth, async(req, res) => {
+    /*  
+            #swagger.tags = ['Local'],
+            #swagger.parameters['body'] = {
+                in: 'body',
+                description: 'Adiciona um novo Usuário',
+                schema: {
+                    $nome: "Jardim Botânico de Florianópolis",
+                    $descricao: "Lugar cheio de natureza e excelente para fazer um piquinique",
+                    $localidade: "localizado no bairro Itacorubi",
+                    $cep: "88015200",
+                    $usuarios_id: "14"      
+            }
+        }
+    */
 
     try {
         const nome = req.body.nome 
@@ -40,15 +54,25 @@ localRoutes.post("/", auth, async(req, res) => {
 
 // Listar Local com base no Id do usuário logado.
 localRoutes.get("/", auth, async (req, res) => {
-
-    const token = req.headers.authorization;
-
-    if (!token) {
-        console.error(error, error)
-        return res.status(401).json({ message: "Token não é válido" });
-    }
+    /*  
+            #swagger.tags = ['Local'],
+            #swagger.parameters['parameterName'] = {
+                in: 'query',
+                description: 'Realiza o login no sistema.',
+                type: "number"       
+            }
+        }
+    */
 
     try {
+
+        const token = req.headers.authorization;
+
+        if (!token) {
+            console.error(error, error)
+            return res.status(401).json({ message: "Token não é válido" });
+        }
+
         const Token = verify(token, process.env.SECRET_JWT);
         req.id = Token.sub;
         console.log(req.id)
@@ -69,6 +93,15 @@ localRoutes.get("/", auth, async (req, res) => {
 
 // Listar informações detalhadas de um local específico
 localRoutes.get("/:id", auth, async(req, res) => {
+    /*  
+            #swagger.tags = ['Local'],
+            #swagger.parameters['id'] = {
+                in: 'query',
+                description: 'Lista informações detalhadas de um local selecionado pelo usuário.',
+                type: "number"       
+            }
+        }
+    */
 
     try {
         const { id } = req.params
@@ -104,6 +137,24 @@ localRoutes.get("/:id", auth, async(req, res) => {
 
 // Atualizar local
 localRoutes.put("/:local_id", async(req, res) => {
+    /*  
+            #swagger.tags = ['Local'],
+            #swagger.parameters['local_id'] = {
+                in: 'path',
+                description: 'Pega o Id do local no banco de dados.',
+                type: "number"       
+            }
+            #swagger.parameters['body'] = {
+                in: 'body',
+                description: 'Atualiza um local cadastrado.',
+                schema: {
+                    $nome: "Jardim Botânico de Florianópolis",
+                    $descricao: "Lugar cheio de natureza e excelente para fazer um piquinique e levar crianças para passear",
+                    $localidade: "localizado no bairro Itacorubi",
+                    $cep: "88015200",     
+            }
+        }
+    */
 
     try {
         let { local_id } = req.params
@@ -154,6 +205,16 @@ localRoutes.put("/:local_id", async(req, res) => {
 
 // Deletar local
 localRoutes.delete("/:local_id", auth, async(req, res) => {
+    /*  
+            #swagger.tags = ['Local'],
+            #swagger.parameters['local_id'] = {
+                in: 'path',
+                description: 'Deleta o local do banco de dados',
+                type: "number"       
+            }
+        }
+    */
+
     try {
         const { local_id } = req.params
 
@@ -189,6 +250,15 @@ localRoutes.delete("/:local_id", auth, async(req, res) => {
 
 //Disponibilizar link maps
 localRoutes.get("/:local_id/maps", auth, async(req, res) => {
+    /*  
+            #swagger.tags = ['Link Maps'],
+            #swagger.parameters['local_id'] = {
+                in: 'path',
+                description: 'Gera o link para o Google Maps',
+                type: "number"       
+            }
+        }
+    */
     try {
         const { local_id } = req.params
 

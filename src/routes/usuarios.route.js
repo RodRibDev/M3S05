@@ -5,6 +5,23 @@ const { auth } = require('../middleware/auth')
 const usuarioRoutes = new Router()
 
 usuarioRoutes.post("/", auth, async(req, res) => {
+    /*  
+            #swagger.tags = ['Usuário'],
+            #swagger.parameters['body'] = {
+                in: 'body',
+                description: 'Adiciona um novo Usuário',
+                schema: {
+                    $nome: "Novo Usuário",
+                    $cpf: "88015200",
+                    $sexo: "masculino",
+                    $endereço: "Rua dos Maracujás, 412, bairro Açaí",
+                    $data_nascimento: "1996-12-15",
+                    $email: "usuario123@gmail.com",
+                    $password: "senha123456",      
+            }
+        }
+    */
+
     try {
         const nome = req.body.nome 
         let cpf = req.body.cpf
