@@ -38,7 +38,7 @@ $ node src/index.js
 ```
 
 ## 📖 Documentação da API com Swagger
- Para a documentação desta API foi utilizado o Swagger, que é um conjunto de ferramentas criada pela SmartBear para ajudar desenvolvedores na documenatação de APIs. 
+ Para a documentação desta API foi utilizado o [Swagger](https://swagger.io/), que é um conjunto de ferramentas criada pela SmartBear para ajudar desenvolvedores na documentação de APIs. 
 
  ### Para acessar a interface gráfica do Swagger
  Com o servidor rodando - acesse <http://localhost:3000/docs>
