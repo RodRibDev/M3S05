@@ -6,7 +6,7 @@
 * Ferramentas: Visual Studio Code, GitHub, Trello, Postman e PgAdmin4.
 
 ## ☁️ Banco de dados    
- Para essa aplicação, foi usado o banco de dados [PostgreSql](https://www.postgresql.org/), sendo necessário a instalação do PostgreSql e do [pgAdmin4](https://www.pgadmin.org/download/) na máquina.
+ Para essa aplicação, foi usado o banco de dados PostgreSql, sendo necessário a instalação do [PostgreSql](https://www.postgresql.org/) e do [pgAdmin4](https://www.pgadmin.org/download/) na máquina.
 
 ## Rodar o repositório:
 
@@ -16,35 +16,35 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-```bash
-# Clone o repositório
-$ git clone <https://github.com/josuesantos7/ProjetoNature365.git>
 
-# Acesse a pasta do projeto no terminal/cmd
-$ cd PROJETO NATURE365
+### Clone o repositório
+`git clone <https://github.com/josuesantos7/ProjetoNature365.git>`
 
-# configure o arquivo .env
-$ cp .env_example .env
+### Acesse a pasta do projeto no terminal/cmd
+ `cd PROJETO NATURE365`
 
-# Instale as dependências
-$ npm install
+### configure o arquivo .env
+ `cp .env_example .env`
 
-# Rode as migrations
-$ sequelize db:migrate
+### Instale as dependências
+ `npm install`
+
+### Rode as migrations
+ `sequelize db:migrate`
 ou
-$ npx sequelize db:migrate
+ `npx sequelize db:migrate`
 
-# Rode os seeders na seguinte ordem:
-1º. $ npx sequelize-cli db:seed --seed Usuarios.seeder.js
-2º. $ npx sequelize-cli db:seed --seed Locais.seeder.js
+### Rode os seeders na seguinte ordem:
+1º. `npx sequelize-cli db:seed --seed Usuarios.seeder.js`
+2º. `npx sequelize-cli db:seed --seed Locais.seeder.js`
 
-# Execute a aplicação em modo de desenvolvimento
-$ npm run start:dev
-# ou
-$ node src/index.js
+### Execute a aplicação em modo de desenvolvimento
+ `npm run start:dev`
+ ou
+ `node src/index.js`
 
-# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
-```
+### O servidor inciará na porta:3000 - acesse <http://localhost:3000>
+
 
 ## 📖 Documentação da API com Swagger
  Para a documentação desta API foi utilizado o [Swagger](https://swagger.io/), que é um conjunto de ferramentas criada pela SmartBear para ajudar desenvolvedores na documentação de APIs. 
@@ -53,7 +53,7 @@ $ node src/index.js
  Com o servidor rodando - acesse <http://localhost:3000/docs>
 
 
-### Features
+## Features
 
 - [x] Adicionando-migrations-models
 - [x] Adicionando-rotas
