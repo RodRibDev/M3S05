@@ -29,6 +29,15 @@ $ cp .env_example .env
 # Instale as dependências
 $ npm install
 
+# Rode as migrations
+$ sequelize db:migrate
+ou
+$ npx sequelize db:migrate
+
+# Rode os seeders na seguinte ordem:
+1º. $ npx sequelize-cli db:seed --seed Usuarios.seeder.js
+2º. $ npx sequelize-cli db:seed --seed Locais.seeder.js
+
 # Execute a aplicação em modo de desenvolvimento
 $ npm run start:dev
 # ou
