@@ -59,3 +59,7 @@ ou
 - [x] Adicionando-rotas
 - [x] Adicionando-Documentações
 - [ ] Adicionando-Controllers
+
+
+## Melhorias futuras
+ Para as futuras versão desta API, implementarei os Controllers para uma melhor organização do código, criptografia de senha a partir da biblioteca bcrypt e implementação de uma nova função para o usuário poder adicionar fotos ao cadastro de um local.
