@@ -4,7 +4,7 @@ const { auth } = require('../middleware/auth')
 
 const usuarioRoutes = new Router()
 
-usuarioRoutes.post("/", auth, async(req, res) => {
+usuarioRoutes.post("/", async(req, res) => {
     /*  
             #swagger.tags = ['Usuário'],
             #swagger.parameters['body'] = {

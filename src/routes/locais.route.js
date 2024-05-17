@@ -136,7 +136,7 @@ localRoutes.get("/:id", auth, async(req, res) => {
 
 
 // Atualizar local
-localRoutes.put("/:local_id", async(req, res) => {
+localRoutes.put("/:local_id", auth, async(req, res) => {
     /*  
             #swagger.tags = ['Local'],
             #swagger.parameters['local_id'] = {
