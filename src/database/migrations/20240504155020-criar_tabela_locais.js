@@ -27,7 +27,7 @@ module.exports = {
           type: Sequelize.STRING
         },
 
-        coordenadas_geograficas: {
+        cep: {
           allowNull: false,
           type: Sequelize.STRING
         },
