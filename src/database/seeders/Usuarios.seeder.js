@@ -6,53 +6,23 @@ module.exports = {
         await Usuario.bulkCreate([
             {
                 id: "100",
-                nome: "Josué Santos",
+                nome: "João Vitor",
                 cpf: "03853265891",
                 sexo: "masculino",
                 endereco: "Rua Salvador Diniz, 542, Bairro Alvorada",
                 data_nascimento: "1999-05-14",
-                email: "josue@gmail.com",
-                password: "josue1234"
+                email: "joaovitor@gmail.com",
+                password: "joao9564"
             },
             {
                 id: "101",
-                nome: "Anaísa Teodoro",
+                nome: "Ana Maria",
                 cpf: "03853265100",
                 sexo: "feminino",
                 endereco: "Servidão João Decken, 20, Bairro Centro",
-                data_nascimento: "1997-01-06",
-                email: "anaisa@gmail.com",
-                password: "anaisa1234"
-            },
-            {
-                id: "102",
-                nome: "Rodrigo Ribeiro",
-                cpf: "03853265892",
-                sexo: "masculino",
-                endereco: "Rua Salvia Diniz, 542, Bairro Alvorada",
-                data_nascimento: "1996-05-13",
-                email: "rodrigo@gmail.com",
-                password: "rodrigo1234"
-            },
-            {
-                id: "103",
-                nome: "Leiliane Costa",
-                cpf: "03853265101",
-                sexo: "feminino",
-                endereco: "Servidão Jonas Decken, 21, Bairro Centro",
-                data_nascimento: "1990-01-02",
-                email: "leiliane@gmail.com",
-                password: "leiliane1234"
-            },
-            {
-                id: "104",
-                nome: "Bruno Costa",
-                cpf: "03853265893",
-                sexo: "masculino",
-                endereco: "Rua Ceará, 542, Bairro Alvorada",
-                data_nascimento: "1996-05-13",
-                email: "bruno@gmail.com",
-                password: "bruno1234"
+                data_nascimento: "1987-01-06",
+                email: "anamaria@gmail.com",
+                password: "anamaria51"
             }
         ])
     },
@@ -60,11 +30,8 @@ module.exports = {
     down: async (QueryInterface, Sequelize) => {
         await Usuario.destroy({
             email: [
-                "josue@gmail.com",
-                "anaisa@gmail.com",
-                "rodrigo@gmail.com",
-                "leiliane@gmail.com",
-                "bruno@gmail.com"
+                "joaovitor@gmail.com", 
+                "anamaria@gmail.com"
             ] 
         })
     }
