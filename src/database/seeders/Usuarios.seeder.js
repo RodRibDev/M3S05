@@ -29,7 +29,7 @@ module.exports = {
                 nome: "Rodrigo Ribeiro",
                 cpf: "03853265892",
                 sexo: "masculino",
-                endereco: "Rua Salvia Diniz, 542, Bairro Alvorada",
+                endereco: "Rua Salvia Diniz, 542, Bairro Ingleses Sul",
                 data_nascimento: "1996-05-13",
                 email: "rodrigo@gmail.com",
                 password: "rodrigo1234"
@@ -39,7 +39,7 @@ module.exports = {
                 nome: "Leiliane Costa",
                 cpf: "03853265101",
                 sexo: "feminino",
-                endereco: "Servidão Jonas Decken, 21, Bairro Centro",
+                endereco: "Rua da Paz, 21, Bairro Beira Mar",
                 data_nascimento: "1990-01-02",
                 email: "leiliane@gmail.com",
                 password: "leiliane1234"
@@ -49,7 +49,7 @@ module.exports = {
                 nome: "Bruno Costa",
                 cpf: "03853265893",
                 sexo: "masculino",
-                endereco: "Rua Ceará, 542, Bairro Alvorada",
+                endereco: "Rua Ceará, 542, Bairro Fortaleza",
                 data_nascimento: "1996-05-13",
                 email: "bruno@gmail.com",
                 password: "bruno1234"
