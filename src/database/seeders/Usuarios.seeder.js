@@ -29,7 +29,7 @@ module.exports = {
                 nome: "Rodrigo Ribeiro",
                 cpf: "03853265892",
                 sexo: "masculino",
-                endereco: "Rua Salvia Diniz, 542, Bairro Ingleses",
+                endereco: "Rua Salvia Diniz, 542, Bairro Ingleses Sul",
                 data_nascimento: "1996-05-13",
                 email: "rodrigo@gmail.com",
                 password: "rodrigo1234"
