@@ -52,13 +52,13 @@ localRoutes.post("/", auth, async(req, res) => {
 })
 
 
-// Listar Local com base no Id do usuário logado.
+// Listar Local com base no ID do usuário logado.
 localRoutes.get("/", auth, async (req, res) => {
     /*  
             #swagger.tags = ['Local'],
             #swagger.parameters['parameterName'] = {
                 in: 'query',
-                description: 'Realiza o login no sistema.',
+                description: 'Lista Locais com base no ID do usuário logado.',
                 type: "number"       
             }
         }
@@ -87,6 +87,30 @@ localRoutes.get("/", auth, async (req, res) => {
     } catch (error) {
          console.error("Erro ao validar o token JWT:", error);
          return res.status(401).json({ error: "Acesso negado"})
+    }
+})
+
+
+ // Listar todos os locais.
+ localRoutes.get("/all", async (req, res) => {
+    /*  
+            #swagger.tags = ['Local'],
+            #swagger.parameters['parameterName'] = {
+                in: 'query',
+                description: 'Lista todos os locais cadastrados.',
+                type: "number"       
+            }
+        }
+    */
+
+    try {
+
+        const listarAll = await Local.findAll({
+        })
+        res.status(200).json({listarAll})
+
+    } catch (error) {
+        return res.status(500).json({ error: "Erro ao listar os locais"})
     }
 })
 
