@@ -27,11 +27,6 @@
         "description": "",
         "parameters": [
           {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          },
-          {
             "name": "body",
             "in": "body",
             "description": "Adiciona um novo Usuário",
@@ -44,7 +39,7 @@
                 },
                 "cpf": {
                   "type": "string",
-                  "example": "88015200"
+                  "example": "03834285120"
                 },
                 "sexo": {
                   "type": "string",
@@ -85,9 +80,6 @@
           },
           "400": {
             "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
           },
           "409": {
             "description": "Conflict"
@@ -226,7 +218,7 @@
           {
             "name": "parameterName",
             "in": "query",
-            "description": "Realiza o login no sistema.",
+            "description": "Lista Locais com base no ID do usuário logado.",
             "type": "number"
           }
         ],
@@ -236,6 +228,30 @@
           },
           "401": {
             "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/local/all": {
+      "get": {
+        "tags": [
+          "Local"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "parameterName",
+            "in": "query",
+            "description": "Lista todos os locais cadastrados.",
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }

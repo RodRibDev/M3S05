@@ -12,7 +12,7 @@ usuarioRoutes.post("/", async(req, res) => {
                 description: 'Adiciona um novo Usuário',
                 schema: {
                     $nome: "Novo Usuário",
-                    $cpf: "88015200",
+                    $cpf: "03834285120",
                     $sexo: "masculino",
                     $endereço: "Rua dos Maracujás, 412, bairro Açaí",
                     $data_nascimento: "1996-12-15",
