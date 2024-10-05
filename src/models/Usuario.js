@@ -39,21 +39,29 @@ const Usuario = connection.define('usuarios', {
             notEmpty: true,
         }
     },
-    endereco: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: true,
-        }
-    },
-    data_nascimento: {
+
+    dataNascimento: {
         type: DataTypes.DATE,
         allowNull: false,
         validate: {
             notEmpty: true,
         }
-    }
-    
+    },
+    cep: {
+        type: DataTypes.STRING,
+    },
+    rua: {
+        type: DataTypes.STRING,
+    },
+    bairro: {
+        type: DataTypes.STRING,
+    },
+    cidade: {
+        type: DataTypes.STRING,
+    },
+    uf: {
+        type: DataTypes.STRING,
+    }    
 })
 
 
