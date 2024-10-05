@@ -49,7 +49,7 @@
                   "type": "string",
                   "example": "Rua dos Maracujás, 412, bairro Açaí"
                 },
-                "data_nascimento": {
+                "dataNascimento": {
                   "type": "string",
                   "example": "1996-12-15"
                 },
@@ -67,7 +67,7 @@
                 "cpf",
                 "sexo",
                 "endereço",
-                "data_nascimento",
+                "dataNascimento",
                 "email",
                 "password"
               ]
@@ -165,14 +165,34 @@
                 "descricao": {
                   "type": "string",
                   "example": "Lugar cheio de natureza e excelente para fazer um piquinique"
-                },
-                "localidade": {
-                  "type": "string",
-                  "example": "localizado no bairro Itacorubi"
-                },
+                },                
                 "cep": {
                   "type": "string",
                   "example": "88015200"
+                },
+                "rua": {
+                  "type": "string",
+                  "example": "Rua A"
+                },
+                "cidade": {
+                  "type": "string",
+                  "example": "Florianópolis"
+                },
+                "bairro": {
+                  "type": "string",
+                  "example": "Itacorubi"
+                },
+                "uf": {
+                  "type": "string",
+                  "example": "SC"
+                },
+                "latitude": {
+                  "type": "string",
+                  "example": "-24.234249"
+                },
+                "longitude": {
+                  "type": "string",
+                  "example": "-44.234249"
                 },
                 "usuarios_id": {
                   "type": "string",
@@ -182,7 +202,12 @@
               "required": [
                 "nome",
                 "descricao",
-                "localidade",
+                "rua",
+                "cidade",
+                "bairro",
+                "uf",
+                "latitude",
+                "longitude",
                 "cep",
                 "usuarios_id"
               ]
@@ -322,20 +347,45 @@
                 "descricao": {
                   "type": "string",
                   "example": "Lugar cheio de natureza e excelente para fazer um piquinique e levar crianças para passear"
-                },
-                "localidade": {
-                  "type": "string",
-                  "example": "localizado no bairro Itacorubi"
-                },
+                },                
                 "cep": {
                   "type": "string",
                   "example": "88015200"
+                },
+                "rua": {
+                  "type": "string",
+                  "example": "Rua A"
+                },
+                "cidade": {
+                  "type": "string",
+                  "example": "Florianópolis"
+                },
+                "bairro": {
+                  "type": "string",
+                  "example": "Itacorubi"
+                },
+                "uf": {
+                  "type": "string",
+                  "example": "SC"
+                },
+                "latitude": {
+                  "type": "string",
+                  "example": "-24.234249"
+                },
+                "longitude": {
+                  "type": "string",
+                  "example": "-44.234249"
                 }
               },
               "required": [
                 "nome",
                 "descricao",
-                "localidade",
+                "rua",
+                "cidade",
+                "bairro",
+                "uf",
+                "latitude",
+                "longitude",                
                 "cep"
               ]
             }
