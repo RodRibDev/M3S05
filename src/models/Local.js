@@ -9,10 +9,25 @@ const Local = connection.define("locais", {
     descricao: {
         type: DataTypes.STRING
     },
-    localidade: {
+    cep: {
         type: DataTypes.STRING
     },
-    cep: {
+    rua: {
+        type: DataTypes.STRING
+    },
+    bairro: {
+        type: DataTypes.STRING
+    },
+    cidade: {
+        type: DataTypes.STRING
+    },
+    uf: {
+        type: DataTypes.STRING
+    },
+    latitude: {
+        type: DataTypes.STRING
+    },
+    longitude: {
         type: DataTypes.STRING
     },
     usuarios_id: {
