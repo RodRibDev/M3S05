@@ -15,9 +15,14 @@ localRoutes.post("/", auth, async(req, res) => {
                 description: 'Adiciona um novo Usuário',
                 schema: {
                     $nome: "Jardim Botânico de Florianópolis",
-                    $descricao: "Lugar cheio de natureza e excelente para fazer um piquinique",
-                    $localidade: "localizado no bairro Itacorubi",
+                    $descricao: "Lugar cheio de natureza e excelente para fazer um piquinique",                   
                     $cep: "88015200",
+                    $rua: "Rua A",
+                    $cidade: "Florianópolis",
+                    $bairro: "Itacorubi",
+                    $uf: "SC",
+                    $latitude: "-47.123123",
+                    $longitude: "-90.123123",
                     $usuarios_id: "14"      
             }
         }
@@ -26,7 +31,12 @@ localRoutes.post("/", auth, async(req, res) => {
     try {
         const nome = req.body.nome 
         const descricao = req.body.descricao
-        const localidade = req.body.localidade
+        const rua = req.body.rua
+        const cidade = req.body.cidade
+        const bairro = req.body.bairro
+        const uf = req.body.uf
+        const latitude = req.body.latitude
+        const longitude = req.body.longitude
         const cep = req.body.cep
         const usuarios_id = req.body.usuarios_id
 
@@ -37,7 +47,12 @@ localRoutes.post("/", auth, async(req, res) => {
             const local = await Local.create({
                 nome: nome,
                 descricao: descricao,
-                localidade: localidade,
+                rua: rua,
+                cidade: cidade,
+                bairro: bairro,
+                uf: uf,
+                latitude: latitude,
+                longitude: longitude,
                 cep: cep,
                 usuarios_id : usuarios_id                         
             })
@@ -174,8 +189,13 @@ localRoutes.put("/:local_id", auth, async(req, res) => {
                 schema: {
                     $nome: "Jardim Botânico de Florianópolis",
                     $descricao: "Lugar cheio de natureza e excelente para fazer um piquinique e levar crianças para passear",
-                    $localidade: "localizado no bairro Itacorubi",
-                    $cep: "88015200",     
+                    $rua: "Rua A",
+                    $cidade: "Florianópolis",
+                    $bairro: "Itacorubi",
+                    $uf: "SC",
+                    $latitude: "-47.123123",
+                    $longitude: "-90.123123",
+                    $cep: "88015200" 
             }
         }
     */
@@ -185,7 +205,12 @@ localRoutes.put("/:local_id", auth, async(req, res) => {
 
         const nome = req.body.nome
         const descricao = req.body.descricao
-        const localidade = req.body.localidade
+        const rua = req.body.rua
+        const cidade = req.body.cidade
+        const bairro = req.body.bairro
+        const uf = req.body.uf
+        const latitude = req.body.latitude
+        const longitude = req.body.longitude
         const cep = req.body.cep
         const usuarios_id = req.body.usuarios_id
 
@@ -209,7 +234,12 @@ localRoutes.put("/:local_id", auth, async(req, res) => {
             editLocal.update({
                 nome : nome, 
                 descricao : descricao, 
-                localidade : localidade,
+                rua : rua,
+                cidade : cidade,
+                bairro : bairro,
+                uf : uf,
+                latitude : latitude,
+                longitude : longitude,
                 cep : cep,
                 usuarios_id : usuarios_id
             })
