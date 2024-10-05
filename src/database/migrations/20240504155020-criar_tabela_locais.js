@@ -22,12 +22,37 @@ module.exports = {
           type: Sequelize.STRING
         },
 
-        localidade: {
+        cep: {
+          allowNull: false,
+          type: Sequelize.STRING
+        },
+        
+        rua: {
           allowNull: false,
           type: Sequelize.STRING
         },
 
-        cep: {
+        bairro: {
+          allowNull: false,
+          type: Sequelize.STRING
+        },
+
+        cidade: {
+          allowNull: false,
+          type: Sequelize.STRING
+        },
+        
+        uf: {
+          allowNull: false,
+          type: Sequelize.STRING
+        },
+        
+        latitude: {
+          allowNull: false,
+          type: Sequelize.STRING
+        },
+
+        longitude: {
           allowNull: false,
           type: Sequelize.STRING
         },
