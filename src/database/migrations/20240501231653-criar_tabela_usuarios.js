@@ -30,11 +30,6 @@ module.exports = {
           type: Sequelize.STRING
         },
 
-        endereco: {
-          allowNull: false,
-          type: Sequelize.STRING
-        },
-
         email: {
           allowNull: false,
           type: Sequelize.STRING,
@@ -46,7 +41,32 @@ module.exports = {
           type: Sequelize.STRING,
         },
 
-        data_nascimento: {
+        dataNascimento: {
+          allowNull: false,
+          type: Sequelize.STRING
+        },      
+
+        cep: {
+          allowNull: false,
+          type: Sequelize.STRING
+        },        
+
+        rua: {
+          allowNull: false,
+          type: Sequelize.STRING
+        },
+
+        bairro: {
+          allowNull: false,
+          type: Sequelize.STRING
+        },
+
+        cidade: {
+          allowNull: false,
+          type: Sequelize.STRING
+        },
+
+        uf: {
           allowNull: false,
           type: Sequelize.STRING
         },
