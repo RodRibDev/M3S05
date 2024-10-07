@@ -61,7 +61,15 @@ const Usuario = connection.define('usuarios', {
     },
     uf: {
         type: DataTypes.STRING,
-    }    
+    },
+    loggedIn: {
+        allowNull: false,
+        type: DataTypes.BOOLEAN,
+        defaultValue:false,
+        validate: {
+            notEmpty: true,
+        }
+    },
 })
 
 
