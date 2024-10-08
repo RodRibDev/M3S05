@@ -22,40 +22,33 @@ loginRoutes.post('/', async (req, res) => {
         const email = req.body.email
         const password = req.body.password
 
-        if (!email) {
-            return res.status(400).json({ message: 'O email é obrigatório' })
-        }
-
-        if (!password) {
-            return res.status(400).json({ message: 'O password é obrigatório' })
+        if (!email || !password) {
+            return res.status(400).json({ message: 'Email e senha são obrigatórios' })
         }
 
         const usuario = await Usuario.findOne({
             where: {email:email}
         })
 
-        if(!usuario){
-            return res.status(404).json({ error: 'Nenhum usuário corresponde a email e senha fornecidos!' })
+        if (!usuario || usuario.password !== password) {
+            return res.status(403).json({ message: 'Email ou senha inválidos' })
         }
-
-        const senha = await Usuario.findOne({
-            where: {password:password,
-                email:email
-            }
-        })
 
         const payload = {sub: usuario.id, email: usuario.email, nome: usuario.nome}
 
         const token = sign(payload, process.env.SECRET_JWT) 
         
-        if(usuario.password === password){
-            usuario.loggedIn = true;
-            await usuario.save();
-            return res.status(200).json({Token: token})
-        } else {
-            return res.status(403).json({ message: 'Dados inválidos'})
-        }
-
+        usuario.loggedIn = true;
+        await usuario.save();
+        
+        return res.status(200).json({
+            Token: token,
+            id: usuario.id,
+            nome: usuario.nome,
+            email: usuario.email
+        })
+       
+        
     } catch (error) {
         return res.status(500).json({ error: error, message: 'Algo deu errado!' })
     }
