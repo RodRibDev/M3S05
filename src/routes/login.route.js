@@ -49,6 +49,8 @@ loginRoutes.post('/', async (req, res) => {
         const token = sign(payload, process.env.SECRET_JWT) 
         
         if(usuario.password === password){
+            usuario.loggedIn = true;
+            await usuario.save();
             return res.status(200).json({Token: token})
         } else {
             return res.status(403).json({ message: 'Dados inválidos'})

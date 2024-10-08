@@ -88,10 +88,21 @@ usuarioRoutes.post("/", async(req, res) => {
             email: email,
             password: password
         })
-        res.json(usuario)
+        res.status(201).json(usuario)
     } catch (error) {
         console.log(error.message)
         res.status(500).json({ error: 'Não foi possível cadastrar o usuário' })
+    }
+})
+
+usuarioRoutes.get("/ativos", async(req, res) => {
+    try {
+        const totalUsuarios = await Usuario.count({where: {loggedIn: true}})
+
+        res.status(200).json(totalUsuarios);
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json({ error: 'Erro no servidor, não foi possível localizar os usuários ativos' })
     }
 })
 
