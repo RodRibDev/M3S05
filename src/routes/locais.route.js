@@ -56,7 +56,7 @@ localRoutes.post("/", auth, async(req, res) => {
                 cep: cep,
                 usuarios_id : usuarios_id                         
             })
-                res.json(local)
+                res.status(201).json(local)
             } else {
                 res.status(404).json({ error: 'CEP não encontrado' });
             }
