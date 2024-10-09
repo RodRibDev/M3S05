@@ -5,9 +5,9 @@ module.exports = {
     up: async (QueryInterface, Sequelize) => {
         await Usuario.bulkCreate([
             {
-                id: "100",
+                id: "1",
                 nome: "Josué Santos",
-                cpf: "03853265891",
+                cpf: "12345678910",
                 sexo: "masculino",
                 cep: "88101020",
                 rua: "Rua Salvador Diniz",
@@ -19,9 +19,9 @@ module.exports = {
                 password: "josue1234"
             },
             {
-                id: "101",
+                id: "2",
                 nome: "Anaísa Teodoro",
-                cpf: "03853265100",
+                cpf: "12345678911",
                 sexo: "feminino",
                 cep: "88117410",
                 rua: "Servidão João Decken",
@@ -33,9 +33,9 @@ module.exports = {
                 password: "anaisa1234"
             },
             {
-                id: "102",
+                id: "3",
                 nome: "Rodrigo Ribeiro",
-                cpf: "03853265892",
+                cpf: "12345678912",
                 sexo: "masculino",
                 cep: "88010000",
                 rua: "Rua Salvia Diniz",
@@ -47,9 +47,9 @@ module.exports = {
                 password: "rodrigo1234"
             },
             {
-                id: "103",
+                id: "4",
                 nome: "Leiliane Costa",
-                cpf: "03853265101",
+                cpf: "12345678913",
                 sexo: "feminino",
                 cep: "88117410",
                 rua: "Rua da Paz",
@@ -61,9 +61,9 @@ module.exports = {
                 password: "leiliane1234"
             },
             {
-                id: "104",
+                id: "5",
                 nome: "Bruno Costa",
-                cpf: "03853265893",
+                cpf: "12345678914",
                 sexo: "masculino",
                 cep: "88117410",
                 rua: "Rua Ceará",
