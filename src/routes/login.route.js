@@ -43,16 +43,15 @@ loginRoutes.post('/', async (req, res) => {
         
         return res.status(200).json({
             Token: token,
-            id: usuario.id,
-            nome: usuario.nome,
-            email: usuario.email
-        })
-       
-        
+            user: {
+                id: usuario.id,
+                nome: usuario.nome,
+                email: usuario.email,
+            }
+        });
     } catch (error) {
-        return res.status(500).json({ error: error, message: 'Algo deu errado!' })
+        return res.status(500).json({ error: error, message: 'Algo deu errado!' });
     }
-})
+});
 
-
-module.exports = loginRoutes
+module.exports = loginRoutes;
