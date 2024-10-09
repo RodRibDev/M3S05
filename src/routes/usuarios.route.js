@@ -96,6 +96,9 @@ usuarioRoutes.post("/", async(req, res) => {
 })
 
 usuarioRoutes.get("/ativos", async(req, res) => {
+     /*  
+            #swagger.tags = ['Usuário'],
+    */
     try {
         const totalUsuarios = await Usuario.count({where: {loggedIn: true}})
 

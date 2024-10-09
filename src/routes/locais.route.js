@@ -12,7 +12,7 @@ localRoutes.post("/", auth, async(req, res) => {
             #swagger.tags = ['Local'],
             #swagger.parameters['body'] = {
                 in: 'body',
-                description: 'Adiciona um novo Usuário',
+                description: 'Adiciona um novo local',
                 schema: {
                     $nome: "Jardim Botânico de Florianópolis",
                     $descricao: "Lugar cheio de natureza e excelente para fazer um piquinique",                   
@@ -136,7 +136,7 @@ localRoutes.get("/:id", auth, async(req, res) => {
             #swagger.tags = ['Local'],
             #swagger.parameters['id'] = {
                 in: 'query',
-                description: 'Lista informações detalhadas de um local selecionado pelo usuário.',
+                description: 'Filtrar local',
                 type: "number"       
             }
         }
@@ -263,7 +263,7 @@ localRoutes.delete("/:local_id", auth, async(req, res) => {
             #swagger.tags = ['Local'],
             #swagger.parameters['local_id'] = {
                 in: 'path',
-                description: 'Deleta o local do banco de dados',
+                description: 'Deleta o local do banco de dados.',
                 type: "number"       
             }
         }

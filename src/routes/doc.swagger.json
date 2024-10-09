@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "PROJETO NATURE 365",
-    "description": "API para treinamento de conteúdos vistos em aula do modulo de Back-End",
+    "title": "API Natureza 365",
+    "description": "API Rest para integração de dados no projeto final do módulo 3 do #FloripaMaisTec - Turma Nature - Squad 3",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
@@ -45,9 +45,25 @@
                   "type": "string",
                   "example": "masculino"
                 },
-                "endereço": {
+                "cep": {
                   "type": "string",
-                  "example": "Rua dos Maracujás, 412, bairro Açaí"
+                  "example": "88117410"
+                },
+                "rua": {
+                  "type": "string",
+                  "example": "Rua dos Maracujás"
+                },
+                "bairro": {
+                  "type": "string",
+                  "example": "Açaí"
+                },
+                "cidade": {
+                  "type": "string",
+                  "example": "Florianópolis"
+                },
+                "uf": {
+                  "type": "string",
+                  "example": "SC"
                 },
                 "dataNascimento": {
                   "type": "string",
@@ -66,7 +82,11 @@
                 "nome",
                 "cpf",
                 "sexo",
-                "endereço",
+                "cep",
+                "rua",
+                "bairro",
+                "cidade",
+                "uf",
                 "dataNascimento",
                 "email",
                 "password"
@@ -75,14 +95,30 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created"
           },
           "400": {
             "description": "Bad Request"
           },
           "409": {
             "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/usuario/ativos": {
+      "get": {
+        "tags": [
+          "Usuário"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "500": {
             "description": "Internal Server Error"
@@ -130,9 +166,6 @@
           "403": {
             "description": "Forbidden"
           },
-          "404": {
-            "description": "Not Found"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -154,7 +187,7 @@
           {
             "name": "body",
             "in": "body",
-            "description": "Adiciona um novo Usuário",
+            "description": "Adiciona um novo local",
             "schema": {
               "type": "object",
               "properties": {
@@ -165,7 +198,7 @@
                 "descricao": {
                   "type": "string",
                   "example": "Lugar cheio de natureza e excelente para fazer um piquinique"
-                },                
+                },
                 "cep": {
                   "type": "string",
                   "example": "88015200"
@@ -188,11 +221,11 @@
                 },
                 "latitude": {
                   "type": "string",
-                  "example": "-24.234249"
+                  "example": "-47.123123"
                 },
                 "longitude": {
                   "type": "string",
-                  "example": "-44.234249"
+                  "example": "-90.123123"
                 },
                 "usuarios_id": {
                   "type": "string",
@@ -202,21 +235,21 @@
               "required": [
                 "nome",
                 "descricao",
+                "cep",
                 "rua",
                 "cidade",
                 "bairro",
                 "uf",
                 "latitude",
                 "longitude",
-                "cep",
                 "usuarios_id"
               ]
             }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created"
           },
           "401": {
             "description": "Unauthorized"
@@ -293,7 +326,7 @@
             "in": "query",
             "required": true,
             "type": "number",
-            "description": "Lista informações detalhadas de um local selecionado pelo usuário."
+            "description": "Filtrar local"
           },
           {
             "name": "authorization",
@@ -347,10 +380,6 @@
                 "descricao": {
                   "type": "string",
                   "example": "Lugar cheio de natureza e excelente para fazer um piquinique e levar crianças para passear"
-                },                
-                "cep": {
-                  "type": "string",
-                  "example": "88015200"
                 },
                 "rua": {
                   "type": "string",
@@ -370,11 +399,15 @@
                 },
                 "latitude": {
                   "type": "string",
-                  "example": "-24.234249"
+                  "example": "-47.123123"
                 },
                 "longitude": {
                   "type": "string",
-                  "example": "-44.234249"
+                  "example": "-90.123123"
+                },
+                "cep": {
+                  "type": "string",
+                  "example": "88015200"
                 }
               },
               "required": [
@@ -385,7 +418,7 @@
                 "bairro",
                 "uf",
                 "latitude",
-                "longitude",                
+                "longitude",
                 "cep"
               ]
             }
@@ -414,7 +447,7 @@
             "in": "path",
             "required": true,
             "type": "number",
-            "description": "Deleta o local do banco de dados"
+            "description": "Deleta o local do banco de dados."
           },
           {
             "name": "authorization",
