@@ -2,8 +2,8 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: "PROJETO NATURE 365",
-    description: "API para treinamento de conteúdos vistos em aula do modulo de Back-End",
+    title: "API Natureza 365",
+    description: "API Rest para integração de dados no projeto final do módulo 3 do #FloripaMaisTec - Turma Nature - Squad 3",
     version: "1.0.0"
   },
   host: 'localhost:3000',

@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "PROJETO NATURE 365",
-    "description": "API para treinamento de conteúdos vistos em aula do modulo de Back-End",
+    "title": "API Natureza 365",
+    "description": "API Rest para integração de dados no projeto final do módulo 3 do #FloripaMaisTec - Turma Nature - Squad 3",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
@@ -21,62 +21,54 @@
   "paths": {
     "/usuario/": {
       "post": {
-        "tags": [
-          "Usuário"
-        ],
         "description": "",
         "parameters": [
           {
             "name": "body",
             "in": "body",
-            "description": "Adiciona um novo Usuário",
             "schema": {
               "type": "object",
               "properties": {
                 "nome": {
-                  "type": "string",
-                  "example": "Novo Usuário"
+                  "example": "any"
                 },
                 "cpf": {
-                  "type": "string",
-                  "example": "03834285120"
+                  "example": "any"
                 },
                 "sexo": {
-                  "type": "string",
-                  "example": "masculino"
+                  "example": "any"
                 },
-                "endereço": {
-                  "type": "string",
-                  "example": "Rua dos Maracujás, 412, bairro Açaí"
+                "cep": {
+                  "example": "any"
+                },
+                "rua": {
+                  "example": "any"
+                },
+                "bairro": {
+                  "example": "any"
+                },
+                "cidade": {
+                  "example": "any"
+                },
+                "uf": {
+                  "example": "any"
                 },
                 "dataNascimento": {
-                  "type": "string",
-                  "example": "1996-12-15"
+                  "example": "any"
                 },
                 "email": {
-                  "type": "string",
-                  "example": "usuario123@gmail.com"
+                  "example": "any"
                 },
                 "password": {
-                  "type": "string",
-                  "example": "senha123456"
+                  "example": "any"
                 }
-              },
-              "required": [
-                "nome",
-                "cpf",
-                "sexo",
-                "endereço",
-                "dataNascimento",
-                "email",
-                "password"
-              ]
+              }
             }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created"
           },
           "400": {
             "description": "Bad Request"
@@ -90,33 +82,36 @@
         }
       }
     },
+    "/usuario/ativos": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/login/": {
       "post": {
-        "tags": [
-          "Login"
-        ],
         "description": "",
         "parameters": [
           {
             "name": "body",
             "in": "body",
-            "description": "Realiza o login no sistema.",
             "schema": {
               "type": "object",
               "properties": {
                 "email": {
-                  "type": "string",
-                  "example": "teste@gmail.com"
+                  "example": "any"
                 },
                 "password": {
-                  "type": "string",
-                  "example": "senha123456"
+                  "example": "any"
                 }
-              },
-              "required": [
-                "email",
-                "password"
-              ]
+              }
             }
           }
         ],
@@ -130,9 +125,6 @@
           "403": {
             "description": "Forbidden"
           },
-          "404": {
-            "description": "Not Found"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -141,9 +133,6 @@
     },
     "/local/": {
       "post": {
-        "tags": [
-          "Local"
-        ],
         "description": "",
         "parameters": [
           {
@@ -154,69 +143,46 @@
           {
             "name": "body",
             "in": "body",
-            "description": "Adiciona um novo Usuário",
             "schema": {
               "type": "object",
               "properties": {
                 "nome": {
-                  "type": "string",
-                  "example": "Jardim Botânico de Florianópolis"
+                  "example": "any"
                 },
                 "descricao": {
-                  "type": "string",
-                  "example": "Lugar cheio de natureza e excelente para fazer um piquinique"
-                },                
-                "cep": {
-                  "type": "string",
-                  "example": "88015200"
+                  "example": "any"
                 },
                 "rua": {
-                  "type": "string",
-                  "example": "Rua A"
+                  "example": "any"
                 },
                 "cidade": {
-                  "type": "string",
-                  "example": "Florianópolis"
+                  "example": "any"
                 },
                 "bairro": {
-                  "type": "string",
-                  "example": "Itacorubi"
+                  "example": "any"
                 },
                 "uf": {
-                  "type": "string",
-                  "example": "SC"
+                  "example": "any"
                 },
                 "latitude": {
-                  "type": "string",
-                  "example": "-24.234249"
+                  "example": "any"
                 },
                 "longitude": {
-                  "type": "string",
-                  "example": "-44.234249"
+                  "example": "any"
+                },
+                "cep": {
+                  "example": "any"
                 },
                 "usuarios_id": {
-                  "type": "string",
-                  "example": "14"
+                  "example": "any"
                 }
-              },
-              "required": [
-                "nome",
-                "descricao",
-                "rua",
-                "cidade",
-                "bairro",
-                "uf",
-                "latitude",
-                "longitude",
-                "cep",
-                "usuarios_id"
-              ]
+              }
             }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created"
           },
           "401": {
             "description": "Unauthorized"
@@ -230,21 +196,12 @@
         }
       },
       "get": {
-        "tags": [
-          "Local"
-        ],
         "description": "",
         "parameters": [
           {
             "name": "authorization",
             "in": "header",
             "type": "string"
-          },
-          {
-            "name": "parameterName",
-            "in": "query",
-            "description": "Lista Locais com base no ID do usuário logado.",
-            "type": "number"
           }
         ],
         "responses": {
@@ -259,18 +216,7 @@
     },
     "/local/all": {
       "get": {
-        "tags": [
-          "Local"
-        ],
         "description": "",
-        "parameters": [
-          {
-            "name": "parameterName",
-            "in": "query",
-            "description": "Lista todos os locais cadastrados.",
-            "type": "number"
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -283,17 +229,13 @@
     },
     "/local/{id}": {
       "get": {
-        "tags": [
-          "Local"
-        ],
         "description": "",
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
             "required": true,
-            "type": "number",
-            "description": "Lista informações detalhadas de um local selecionado pelo usuário."
+            "type": "string"
           },
           {
             "name": "authorization",
@@ -305,28 +247,24 @@
           "200": {
             "description": "OK"
           },
-          "400": {
-            "description": "Bad Request"
-          },
           "401": {
             "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
     },
     "/local/{local_id}": {
       "put": {
-        "tags": [
-          "Local"
-        ],
         "description": "",
         "parameters": [
           {
             "name": "local_id",
             "in": "path",
             "required": true,
-            "type": "number",
-            "description": "Pega o Id do local no banco de dados."
+            "type": "string"
           },
           {
             "name": "authorization",
@@ -336,58 +274,37 @@
           {
             "name": "body",
             "in": "body",
-            "description": "Atualiza um local cadastrado.",
             "schema": {
               "type": "object",
               "properties": {
                 "nome": {
-                  "type": "string",
-                  "example": "Jardim Botânico de Florianópolis"
+                  "example": "any"
                 },
                 "descricao": {
-                  "type": "string",
-                  "example": "Lugar cheio de natureza e excelente para fazer um piquinique e levar crianças para passear"
-                },                
-                "cep": {
-                  "type": "string",
-                  "example": "88015200"
+                  "example": "any"
                 },
                 "rua": {
-                  "type": "string",
-                  "example": "Rua A"
+                  "example": "any"
                 },
                 "cidade": {
-                  "type": "string",
-                  "example": "Florianópolis"
+                  "example": "any"
                 },
                 "bairro": {
-                  "type": "string",
-                  "example": "Itacorubi"
+                  "example": "any"
                 },
                 "uf": {
-                  "type": "string",
-                  "example": "SC"
+                  "example": "any"
+                },
+                "cep": {
+                  "example": "any"
                 },
                 "latitude": {
-                  "type": "string",
-                  "example": "-24.234249"
+                  "example": "any"
                 },
                 "longitude": {
-                  "type": "string",
-                  "example": "-44.234249"
+                  "example": "any"
                 }
-              },
-              "required": [
-                "nome",
-                "descricao",
-                "rua",
-                "cidade",
-                "bairro",
-                "uf",
-                "latitude",
-                "longitude",                
-                "cep"
-              ]
+              }
             }
           }
         ],
@@ -395,26 +312,22 @@
           "200": {
             "description": "OK"
           },
-          "400": {
-            "description": "Bad Request"
-          },
           "401": {
             "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       },
       "delete": {
-        "tags": [
-          "Local"
-        ],
         "description": "",
         "parameters": [
           {
             "name": "local_id",
             "in": "path",
             "required": true,
-            "type": "number",
-            "description": "Deleta o local do banco de dados"
+            "type": "string"
           },
           {
             "name": "authorization",
@@ -426,28 +339,24 @@
           "204": {
             "description": "No Content"
           },
-          "400": {
-            "description": "Bad Request"
-          },
           "401": {
             "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
     },
     "/local/{local_id}/maps": {
       "get": {
-        "tags": [
-          "Link Maps"
-        ],
         "description": "",
         "parameters": [
           {
             "name": "local_id",
             "in": "path",
             "required": true,
-            "type": "number",
-            "description": "Gera o link para o Google Maps"
+            "type": "string"
           },
           {
             "name": "authorization",
