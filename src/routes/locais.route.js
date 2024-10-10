@@ -157,8 +157,7 @@ localRoutes.get("/:id", auth, async(req, res) => {
 
         const listarLocal = await Local.findOne({
             where: {
-                id: id,
-                usuarios_id: Token.sub
+                id: id
             }
         })
 
