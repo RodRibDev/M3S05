@@ -257,48 +257,30 @@ localRoutes.put("/:local_id", auth, async(req, res) => {
 
 
 // Deletar local
-localRoutes.delete("/:local_id", auth, async(req, res) => {
-    /*  
-            #swagger.tags = ['Local'],
-            #swagger.parameters['local_id'] = {
-                in: 'path',
-                description: 'Deleta o local do banco de dados.',
-                type: "number"       
-            }
-        }
-    */
-
+localRoutes.delete("/:local_id", auth, async (req, res) => {
     try {
-        const { local_id } = req.params
+        const { local_id } = req.params;
 
-        const token = req.headers.authorization;
-
-        if (!token) {
-            return res.status(401).json({ message: "Token não é válido" });
-        }
-
-        const Token = verify(token, process.env.SECRET_JWT);
-        req.id = Token.sub;
+        const userId = req.payload.sub;
 
         const local = await Local.findOne({
             where: {
                 id: local_id,
-                usuarios_id: Token.sub
+                usuarios_id: userId
             }
-        })
+        });
 
-        if (local){
-            local.destroy()
-            res.status(204).json({})  
+        if (local) {
+            await local.destroy();
+            res.status(204).json({});
         } else {
-            res.status(400).json({message: "Local não encontrado"})
+            res.status(400).json({ message: "Local não encontrado" });
         }
-
     } catch (error) {
-         console.error("Erro ao validar o token JWT:", error);
-         return res.status(401).json({ error: "Acesso negado"})
+        console.error("Erro ao deletar o local:", error);
+        return res.status(401).json({ error: "Acesso negado" });
     }
-})
+});
 
 
 //Disponibilizar link maps
