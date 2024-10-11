@@ -102,4 +102,4 @@ Desde já, agradecemos!
 - ### Josué Santos
 - - [@josuesantos7](https://www.github.com/josuesantos7)  📫  josuesantossantosvf@gmail.com
 - ### Leiliane Costa
-- - [@leilianelcs](https://www.github.com/leilianelcs)  📫  leilianelc@gmail.com
+- - [@leilianelcs](https://www.github.com/leilianelcs)  📫  leilianelcs@gmail.com
