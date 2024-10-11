@@ -1,0 +1,43 @@
+version: '3.4'
+
+services:
+  api:
+    container_name: api-nature365
+    build:
+      context: .
+    environment:
+      DIALECT: postgres
+      HOST: db
+      USERNAMEDB: postgres
+      PASSWORDDB: postgres
+      DATABASE: db_express
+      PORT: 5432
+      PORT_API: 3000
+      SECRET_JWT: SuaChaveSecreta
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - nature365-network
+
+  db:
+    container_name: db-nature365
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: svrcm279401
+      POSTGRES_DB: db_express
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - nature365-network
+
+volumes:
+  postgres_data:
+
+networks:
+  nature365-network:
+    driver: bridge
