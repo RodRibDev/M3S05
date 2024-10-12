@@ -7,9 +7,9 @@ services:
       DIALECT: postgres
       HOST: db
       USERNAMEDB: postgres
-      PASSWORDDB: postgres
+      PASSWORDDB: svrcm279401
       DATABASE: db_express
-      PORT: 5432
+      PORT: 5433
       PORT_API: 3000
       SECRET_JWT: SuaChaveSecreta
     ports:
