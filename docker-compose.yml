@@ -1,27 +1,32 @@
+version: '3.8'
 services:
-  api:
-    container_name: api-nature365
-    build:
-      context: .
-    environment:
-      DIALECT: postgres
-      HOST: db
-      USERNAMEDB: postgres
-      PASSWORDDB: svrcm279401
-      DATABASE: db_express
-      PORT: 5433
-      PORT_API: 3000
-      SECRET_JWT: SuaChaveSecreta
+  app:
+    container_name: node_app
+    build: .
     ports:
       - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DIALECT=postgres
+      - HOST=database
+      - USERNAMEDB=postgres
+      - PASSWORDDB=svrcm279401
+      - DATABASE=db_express
+      - PORT=5432
+      - PORT_API=3000
+      - SECRET_JWT=SuaChaveSecreta
     depends_on:
-      - db
+      - database
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules  # Monta o volume do node_modules
     networks:
-      - nature365-network
+      - app-network
+    command: npm run start:dev  # Roda o comando nodemon no container
 
-  db:
-    container_name: db-nature365
-    image: postgres:16-alpine
+  database:
+    image: postgres:15
+    container_name: postgres_db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: svrcm279401
@@ -29,13 +34,13 @@ services:
     ports:
       - "5433:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
     networks:
-      - nature365-network
-
-volumes:
-  postgres_data:
+      - app-network
 
 networks:
-  nature365-network:
+  app-network:
     driver: bridge
+
+volumes:
+  pgdata:
