@@ -1,5 +1,3 @@
-version: '3.4'
-
 services:
   api:
     container_name: api-nature365
@@ -29,7 +27,7 @@ services:
       POSTGRES_PASSWORD: svrcm279401
       POSTGRES_DB: db_express
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
