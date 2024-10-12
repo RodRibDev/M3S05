@@ -8,7 +8,7 @@ services:
     environment:
       - NODE_ENV=development
       - DIALECT=postgres
-      - HOST=database
+      - HOST=postgres
       - USERNAMEDB=postgres
       - PASSWORDDB=svrcm279401
       - DATABASE=db_express
@@ -16,15 +16,15 @@ services:
       - PORT_API=3000
       - SECRET_JWT=SuaChaveSecreta
     depends_on:
-      - database
+      - postgres
     volumes:
       - .:/usr/src/app
-      - /usr/src/app/node_modules  # Monta o volume do node_modules
+      - /usr/src/app/node_modules
     networks:
       - app-network
-    command: npm run start:dev  # Roda o comando nodemon no container
+    command: npm run start:dev
 
-  database:
+  postgres:
     image: postgres:15
     container_name: postgres_db
     environment:

@@ -1,8 +1,8 @@
-# Use uma imagem base oficial do Node.js
+# Use uma imagem Node.js baseada no Debian
 FROM node:18
 
 # Instala dependências do sistema necessárias
-RUN apk add --no-cache make gcc g++ python3 postgresql-dev
+RUN apt-get update && apt-get install -y make gcc g++ python3 libpq-dev
 
 # Define o diretório de trabalho dentro do container
 WORKDIR /usr/src/app
@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 # Copia o arquivo package.json e package-lock.json
 COPY package*.json ./
 
-# Instala todas as dependências (incluindo as dev)
+# Instala todas as dependências, incluindo devDependencies
 RUN npm install
 
 # Copia todos os arquivos da aplicação para dentro do container
