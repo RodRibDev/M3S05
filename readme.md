@@ -1,18 +1,17 @@
-# Projeto final - Módulo 03 - FloripaMaisTec - FuturoDEV/Nature - Squad 3
+## Projeto final - Módulo 03 - FloripaMaisTec - FuturoDEV/Nature - **Squad 3**
 
-## 📌 Descrição do Projeto 
+## Descrição do Projeto 📌
 API Rest para integração de dados no projeto final do módulo 3 do curso Analista de Desenvolvimento Web do Sesi/Senai.
 
-# API Rest Natureza 365 - Plataforma de Preservação da Natureza 🌳
+# API Rest **Natureza365** - *Plataforma de Preservação da Natureza* 🌳
 
 
-## 🌿 Apresentação
-Bem-vindo ao Natureza 365, uma plataforma digital dedicada à preservação da natureza que oferece dados sobre espaços naturais aos usuários.
-Também possibilita aos usuários explorarem, cadastrarem e compartilharem informações sobre áreas naturais, trilhas, parques ecológicos, reservas ambientais, praias e outros locais de interesse para amantes da natureza.
+## Apresentação 🌿
+Bem-vindo ao **Natureza365**, que foi desenvolvida com o objetivo de incentivar a preservação ambiental por meio de uma plataforma colaborativa, onde os usuários podem cadastrar locais de preservação da natureza e explorar os já existentes. A aplicação facilita o compartilhamento de informações sobre áreas naturais, trilhas, parques ecológicos, reservas ambientais, praias e outros locais de interesse e permite que os usuários contribuam para a conscientização e preservação desses locais.
 
 
 ## 💡 Problema que Resolve 
-O Natureza 365 resolve o problema de gerenciamento e organização de informações sobre locais da natureza, permitindo que os usuários cadastrem, visualizem, editem e excluam dados de forma eficiente e centralizada.
+O **Natureza365** resolve o problema de gerenciamento e organização de informações sobre locais da natureza, permitindo que os usuários cadastrem, visualizem, editem e excluam dados de forma eficiente e centralizada.
 
 
 ## 💻 Funcionalidades
@@ -30,7 +29,7 @@ Imagem da aplicação rodando em conjunto com o projeto do Front-End:
 
 
 ## 💻 Tecnologias utilizadas
-- **Back-End**: JavaScript, Node.js, Express, Sequelize, Seeders
+- **Back-End**: JavaScript, Node.js, Express, Sequelize, Seeders, Axios, Jsonwebtoken, Swagger
 - **Ferramentas**: Visual Studio Code, GitHub, Trello, Postman e PgAdmin4.
 
 
@@ -42,14 +41,14 @@ Imagem da aplicação rodando em conjunto com o projeto do Front-End:
 ### 📋 Pré-requisitos
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
-Além disso é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+Para trabalhar com o código, indicamos o [VSCode](https://code.visualstudio.com/)
 
 
 ### Clone o repositório
 `git clone <https://github.com/FuturoDEV-Nature/M3P-BackEnd-Squad3>`
 
 ### Acesse a pasta do projeto no terminal/cmd
- `cd PROJETO NATURE365`
+ `cd M3P-BackEnd-Squad3`
 
 ### configure o arquivo .env
 No diretório principal, crie um arquivo .env e cole dentro dele o texto que você extrairá do arquivo .env_example. Em seguida altere seu login e senha do postgres no arquivo .env e salve-o.
@@ -82,18 +81,35 @@ ou
  Para a documentação desta API utilizamos o [Swagger](https://swagger.io/), que é um conjunto de ferramentas criada pela SmartBear para ajudar desenvolvedores na documentação de API's.
 
 
-### Para acessar a interface gráfica do Swagger
+### Para Acessar a Interface Gráfica do Swagger
  Com o servidor rodando - acesse <http://localhost:3000/docs>
 
- 
+
+### Para Acessar a Plataforma **Natureza365**
+Para conferir a plataforma com os seus recursos completos, siga os passos abaixo após rodar este repositório:
+1. Clone o repositório do Front-End:
+ - <https://github.com/FuturoDEV-Nature/M3P-FrontEnd-Squad3>
+ ou
+ `git clone <https://github.com/FuturoDEV-Nature/M3P-FrontEnd-Squad3>`
+
+2. Siga as Instruções do Repositório do Front-End:
+- Acesse o diretório do repositório clonado e siga as instruções no README para rodar a aplicação.
+
+
+
+
 ## 🖇️ Projeto orientado por:
 Profº Bruno Costa
 
 
+
 ## 👊 Contribuições 💡 
-O projeto ainda carece de melhorias, como o uso de controllers, criptografia de senha a partir da biblioteca bcrypt, adição de imagens nos locais cadastrados...
-Fiquem à vontade para sugerir ideias e nos ajudar a deixar o Natureza 365 mais completo e funcional!
+Trata-se de uma primeira versão do plataforma e muitas melhorias ainda podem ser impletamentadas, como o uso de controllers, criptografia de senha a partir da biblioteca bcrypt e a adição de imagens nos locais cadastrados.
+
+Fiquem à vontade para sugerir ideias e nos ajudar a deixar o **Natureza365** mais completo e funcional!
+
 Desde já, agradecemos!
+
 
  
 ## ✒️ Projeto desenvolvido por:
