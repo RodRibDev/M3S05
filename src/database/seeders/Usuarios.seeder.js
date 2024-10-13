@@ -1,9 +1,10 @@
 const { QueryInterface, Sequelize } = require("sequelize");
 const Usuario = require("../../models/Usuario");
+const { hashPassword } = require('../../utils/bcryptHelper');
 
 module.exports = {
     up: async (QueryInterface, Sequelize) => {
-        await Usuario.bulkCreate([
+        const usuarios = [
             {
                 id: "1",
                 nome: "Josué Santos",
@@ -74,18 +75,31 @@ module.exports = {
                 email: "bruno@gmail.com",
                 password: "bruno1234"
             }
-        ])
-    },
+        ];
+
+
+        for (const usuario of usuarios) {
+            usuario.password = await hashPassword(usuario.password);
+          }
+      
+          await Usuario.bulkCreate(usuarios);
+      
+          // Ajusta a sequência
+          await QueryInterface.sequelize.query(`SELECT setval('usuarios_id_seq', (SELECT MAX(id) FROM usuarios));`);
+        },
+
 
     down: async (QueryInterface, Sequelize) => {
         await Usuario.destroy({
-            email: [
-                "josue@gmail.com",
-                "anaisa@gmail.com",
-                "rodrigo@gmail.com",
-                "leiliane@gmail.com",
-                "bruno@gmail.com"
-            ] 
-        })
+            where: {
+                email: [
+                    "josue@gmail.com",
+                    "anaisa@gmail.com",
+                    "rodrigo@gmail.com",
+                    "leiliane@gmail.com",
+                    "bruno@gmail.com"
+                ] 
+            }
+        });
     }
-}
+};
