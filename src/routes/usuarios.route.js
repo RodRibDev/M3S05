@@ -1,6 +1,7 @@
 const { Router } = require('express')
 const Usuario = require('../models/Usuario')
 const { auth } = require('../middleware/auth')
+const { hashPassword } = require('../utils/bcryptHelper');
 
 const usuarioRoutes = new Router()
 
@@ -75,6 +76,8 @@ usuarioRoutes.post("/", async(req, res) => {
             return res.status(409).json({ message: "Email já cadastrado!"})
         }
 
+        const hashedPassword = await hashPassword(password); // Criptografando a senha
+
         const usuario = await Usuario.create({
             nome: nome,
             cpf: cpf,
@@ -86,7 +89,7 @@ usuarioRoutes.post("/", async(req, res) => {
             uf: uf,
             dataNascimento: dataNascimento,
             email: email,
-            password: password
+            password: hashedPassword
         })
         res.status(201).json(usuario)
     } catch (error) {

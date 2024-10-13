@@ -1,6 +1,7 @@
 const { Router } = require('express')
 const Usuario = require('../models/Usuario')
 const { sign } = require('jsonwebtoken')
+const { comparePasswords } = require('../utils/bcryptHelper');
 
 
 const loginRoutes = new Router()
@@ -30,8 +31,8 @@ loginRoutes.post('/', async (req, res) => {
             where: {email:email}
         })
 
-        if (!usuario || usuario.password !== password) {
-            return res.status(403).json({ message: 'Email ou senha inválidos' })
+        if (!usuario || !(await comparePasswords(password, usuario.password))) {
+            return res.status(403).json({ message: 'Email ou senha inválidos' });
         }
 
         const payload = {sub: usuario.id, email: usuario.email, nome: usuario.nome}
