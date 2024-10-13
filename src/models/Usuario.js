@@ -4,12 +4,24 @@ const { connection } = require('../database/connection')
 const Usuario = connection.define('usuarios', {
     email:{
         type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        }
     },
     password:{
         type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        }
     },
     nome: {
         type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        }
     },
     cpf: {
         type: DataTypes.STRING(11),
@@ -22,14 +34,42 @@ const Usuario = connection.define('usuarios', {
     },
     sexo: {
         type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        }
     },
-    endereco: {
+
+    dataNascimento: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        }
+    },
+    cep: {
         type: DataTypes.STRING,
     },
-    data_nascimento: {
-        type: DataTypes.DATE
-    }
-    
+    rua: {
+        type: DataTypes.STRING,
+    },
+    bairro: {
+        type: DataTypes.STRING,
+    },
+    cidade: {
+        type: DataTypes.STRING,
+    },
+    uf: {
+        type: DataTypes.STRING,
+    },
+    loggedIn: {
+        allowNull: false,
+        type: DataTypes.BOOLEAN,
+        defaultValue:false,
+        validate: {
+            notEmpty: true,
+        }
+    },
 })
 
 

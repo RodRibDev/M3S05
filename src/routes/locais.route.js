@@ -12,12 +12,17 @@ localRoutes.post("/", auth, async(req, res) => {
             #swagger.tags = ['Local'],
             #swagger.parameters['body'] = {
                 in: 'body',
-                description: 'Adiciona um novo Usuário',
+                description: 'Adiciona um novo local',
                 schema: {
                     $nome: "Jardim Botânico de Florianópolis",
-                    $descricao: "Lugar cheio de natureza e excelente para fazer um piquinique",
-                    $localidade: "localizado no bairro Itacorubi",
+                    $descricao: "Lugar cheio de natureza e excelente para fazer um piquinique",                   
                     $cep: "88015200",
+                    $rua: "Rua A",
+                    $cidade: "Florianópolis",
+                    $bairro: "Itacorubi",
+                    $uf: "SC",
+                    $latitude: "-47.123123",
+                    $longitude: "-90.123123",
                     $usuarios_id: "14"      
             }
         }
@@ -26,7 +31,12 @@ localRoutes.post("/", auth, async(req, res) => {
     try {
         const nome = req.body.nome 
         const descricao = req.body.descricao
-        const localidade = req.body.localidade
+        const rua = req.body.rua
+        const cidade = req.body.cidade
+        const bairro = req.body.bairro
+        const uf = req.body.uf
+        const latitude = req.body.latitude
+        const longitude = req.body.longitude
         const cep = req.body.cep
         const usuarios_id = req.body.usuarios_id
 
@@ -37,11 +47,16 @@ localRoutes.post("/", auth, async(req, res) => {
             const local = await Local.create({
                 nome: nome,
                 descricao: descricao,
-                localidade: localidade,
+                rua: rua,
+                cidade: cidade,
+                bairro: bairro,
+                uf: uf,
+                latitude: latitude,
+                longitude: longitude,
                 cep: cep,
                 usuarios_id : usuarios_id                         
             })
-                res.json(local)
+                res.status(201).json(local)
             } else {
                 res.status(404).json({ error: 'CEP não encontrado' });
             }
@@ -52,13 +67,13 @@ localRoutes.post("/", auth, async(req, res) => {
 })
 
 
-// Listar Local com base no Id do usuário logado.
+// Listar Local com base no ID do usuário logado.
 localRoutes.get("/", auth, async (req, res) => {
     /*  
             #swagger.tags = ['Local'],
             #swagger.parameters['parameterName'] = {
                 in: 'query',
-                description: 'Realiza o login no sistema.',
+                description: 'Lista Locais com base no ID do usuário logado.',
                 type: "number"       
             }
         }
@@ -91,13 +106,37 @@ localRoutes.get("/", auth, async (req, res) => {
 })
 
 
+ // Listar todos os locais.
+ localRoutes.get("/all", async (req, res) => {
+    /*  
+            #swagger.tags = ['Local'],
+            #swagger.parameters['parameterName'] = {
+                in: 'query',
+                description: 'Lista todos os locais cadastrados.',
+                type: "number"       
+            }
+        }
+    */
+
+    try {
+
+        const listarAll = await Local.findAll({
+        })
+        res.status(200).json({listarAll})
+
+    } catch (error) {
+        return res.status(500).json({ error: "Erro ao listar os locais"})
+    }
+})
+
+
 // Listar informações detalhadas de um local específico
 localRoutes.get("/:id", auth, async(req, res) => {
     /*  
             #swagger.tags = ['Local'],
             #swagger.parameters['id'] = {
                 in: 'query',
-                description: 'Lista informações detalhadas de um local selecionado pelo usuário.',
+                description: 'Filtrar local',
                 type: "number"       
             }
         }
@@ -118,8 +157,7 @@ localRoutes.get("/:id", auth, async(req, res) => {
 
         const listarLocal = await Local.findOne({
             where: {
-                id: id,
-                usuarios_id: Token.sub
+                id: id
             }
         })
 
@@ -150,8 +188,13 @@ localRoutes.put("/:local_id", auth, async(req, res) => {
                 schema: {
                     $nome: "Jardim Botânico de Florianópolis",
                     $descricao: "Lugar cheio de natureza e excelente para fazer um piquinique e levar crianças para passear",
-                    $localidade: "localizado no bairro Itacorubi",
-                    $cep: "88015200",     
+                    $rua: "Rua A",
+                    $cidade: "Florianópolis",
+                    $bairro: "Itacorubi",
+                    $uf: "SC",
+                    $latitude: "-47.123123",
+                    $longitude: "-90.123123",
+                    $cep: "88015200" 
             }
         }
     */
@@ -161,7 +204,12 @@ localRoutes.put("/:local_id", auth, async(req, res) => {
 
         const nome = req.body.nome
         const descricao = req.body.descricao
-        const localidade = req.body.localidade
+        const rua = req.body.rua
+        const cidade = req.body.cidade
+        const bairro = req.body.bairro
+        const uf = req.body.uf
+        const latitude = req.body.latitude
+        const longitude = req.body.longitude
         const cep = req.body.cep
         const usuarios_id = req.body.usuarios_id
 
@@ -185,7 +233,12 @@ localRoutes.put("/:local_id", auth, async(req, res) => {
             editLocal.update({
                 nome : nome, 
                 descricao : descricao, 
-                localidade : localidade,
+                rua : rua,
+                cidade : cidade,
+                bairro : bairro,
+                uf : uf,
+                latitude : latitude,
+                longitude : longitude,
                 cep : cep,
                 usuarios_id : usuarios_id
             })
@@ -204,48 +257,30 @@ localRoutes.put("/:local_id", auth, async(req, res) => {
 
 
 // Deletar local
-localRoutes.delete("/:local_id", auth, async(req, res) => {
-    /*  
-            #swagger.tags = ['Local'],
-            #swagger.parameters['local_id'] = {
-                in: 'path',
-                description: 'Deleta o local do banco de dados',
-                type: "number"       
-            }
-        }
-    */
-
+localRoutes.delete("/:local_id", auth, async (req, res) => {
     try {
-        const { local_id } = req.params
+        const { local_id } = req.params;
 
-        const token = req.headers.authorization;
-
-        if (!token) {
-            return res.status(401).json({ message: "Token não é válido" });
-        }
-
-        const Token = verify(token, process.env.SECRET_JWT);
-        req.id = Token.sub;
+        const userId = req.payload.sub;
 
         const local = await Local.findOne({
             where: {
                 id: local_id,
-                usuarios_id: Token.sub
+                usuarios_id: userId
             }
-        })
+        });
 
-        if (local){
-            local.destroy()
-            res.status(204).json({})  
+        if (local) {
+            await local.destroy();
+            res.status(204).json({});
         } else {
-            res.status(400).json({message: "Local não encontrado"})
+            res.status(400).json({ message: "Local não encontrado" });
         }
-
     } catch (error) {
-         console.error("Erro ao validar o token JWT:", error);
-         return res.status(401).json({ error: "Acesso negado"})
+        console.error("Erro ao deletar o local:", error);
+        return res.status(401).json({ error: "Acesso negado" });
     }
-})
+});
 
 
 //Disponibilizar link maps

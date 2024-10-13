@@ -3,7 +3,7 @@ const { verify } = require("jsonwebtoken")
 
 async function auth(req, res, next) {
     try {
-        console.log("Exacutamos o Middleware auth")
+        console.log("Executamos o Middleware auth")
 
         const { authorization } = req.headers
 
